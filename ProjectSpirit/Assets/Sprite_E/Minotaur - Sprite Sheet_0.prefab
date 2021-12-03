@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &191238194607128771
+--- !u!1 &716607823696874145
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,37 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 191238194607128772}
-  - component: {fileID: 191238194607128773}
-  - component: {fileID: 4270023036994920722}
+  - component: {fileID: 716607823696874148}
+  - component: {fileID: 716607823696874151}
+  - component: {fileID: 716607823696874150}
   m_Layer: 0
-  m_Name: BadGuy
+  m_Name: Minotaur - Sprite Sheet_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &191238194607128772
+--- !u!4 &716607823696874148
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 191238194607128771}
+  m_GameObject: {fileID: 716607823696874145}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 84.3192, y: 84.3192, z: 84.3192}
+  m_LocalPosition: {x: 10.13, y: -0.45, z: 0}
+  m_LocalScale: {x: -3.6266, y: 3.6266, z: 3.6266}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &191238194607128773
+--- !u!212 &716607823696874151
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 191238194607128771}
+  m_GameObject: {fileID: 716607823696874145}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -72,32 +72,34 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d,
+  m_Sprite: {fileID: -2991773290986861209, guid: 78c52045edc835642b1bb30dca313fb5,
     type: 3}
-  m_Color: {r: 0.8679245, g: 0.21698113, b: 0.263155, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 0.52, y: 0.41}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4270023036994920722
-MonoBehaviour:
+--- !u!95 &716607823696874150
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 191238194607128771}
+  m_GameObject: {fileID: 716607823696874145}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fda23ef9df0d8d546a8782771a4af00e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: Badguy
-  unitLevel: 2
-  damage: 1
-  maxHP: 30
-  HUD: {fileID: 7634834614602936651, guid: febef227583cc504f91abad94f0bac42, type: 3}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5ad910b829eb8214bafcf02b997ae464, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

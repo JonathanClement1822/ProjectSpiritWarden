@@ -488,10 +488,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7b455fbf5d62de439cc3ee8f5ef1319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hpBar: {fileID: 4249882373554932648}
+  mpBar: {fileID: 2571665655749842381}
+  healthValue: 30
+  manaValue: 0
+  maxHP: 30
+  maxMP: 23
   nameText: {fileID: 2411627942888715802}
   levelText: {fileID: 3471442236474019462}
-  hpSlider: {fileID: 4249882373554932648}
-  HUDName: ENMYHUD1
 --- !u!1 &2660359411045938542
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,7 +750,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: LvL 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4422fd8cf2666b84386346b5283ad2a7, type: 2}
   m_sharedMaterial: {fileID: 21040265067069690, guid: 4422fd8cf2666b84386346b5283ad2a7,
@@ -881,7 +885,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: Badguy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4422fd8cf2666b84386346b5283ad2a7, type: 2}
   m_sharedMaterial: {fileID: 21040265067069690, guid: 4422fd8cf2666b84386346b5283ad2a7,

@@ -13,8 +13,8 @@ public class BattleSystem : MonoBehaviour
     //public Unit[] players;
     //public BattleHUD[] playerHUDs;
 
-    public List <Unit> players = new List <Unit> ();
-    private int turnIndex;
+    public List<Unit> players = new List<Unit>();
+    //private int turnIndex;
     //public List <BattleHUD> playerHUDs = new List <BattleHUD> ();
 
     public GameObject playerPrefab1;
@@ -27,6 +27,7 @@ public class BattleSystem : MonoBehaviour
 
     //Unit playerUnit;
     Unit enemyUnit;
+    Unit activePlayer;
 
     public Text dialogueText;
 
@@ -34,6 +35,7 @@ public class BattleSystem : MonoBehaviour
 
     public BattleState state;
 
+    private Queue<Unit> turnOrder = new Queue<Unit>();
 
     // Start is called before the first frame update
     void Start()
@@ -42,58 +44,67 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(SetupBattle());
     }
 
-    private void TurnProcessor()
+    private void SetUpTurnOrder()
     {
-        if (turnIndex > 2)
+        for (int i = 0; i < players.Count; i++)
         {
-
-            turnIndex = 0;
-            
-        }
-        Debug.Log(turnIndex);
-
-        if (turnIndex == 0)
-        {
-            Debug.Log(turnIndex);
-            state = BattleState.PLAYERTURN;
-
-            StartCoroutine(PlayerAttack(players[0]));
-            //Player 1 attack
-        }
-        else if (turnIndex == 1)
-        {
-            if (players.Count > 1)
-            {
-                Debug.Log(turnIndex);
-                state = BattleState.PLAYERTURN;
-                //Player 2 attack
-                StartCoroutine(PlayerAttack(players[1]));
-
-            }
-            else
-            {
-                Debug.Log(turnIndex);
-                state = BattleState.ENEMYTURN;
-                StartCoroutine(EnemyTurn());
-
-            }
+            turnOrder.Enqueue(players[i]);
 
         }
-        else if (turnIndex == 2)
+        //You would add another for loop for enemies if you want more
+        turnOrder.Enqueue(enemyUnit);
+
+        SetTurnState(turnOrder.Peek());
+    }
+
+    private void SetTurnState(Unit unit)
+    {
+        if (unit.gameObject.tag == "Enemy")
         {
-            Debug.Log(turnIndex);
-            // enemy attack
             state = BattleState.ENEMYTURN;
-            StartCoroutine(EnemyTurn());
         }
         else
         {
-            Debug.Log("This Isn't Working as intended");
+            state = BattleState.PLAYERTURN;
         }
 
-        turnIndex++;
+        switch (state)
+        {
+            case BattleState.PLAYERTURN:
+                PlayerTurn(unit);
+                break;
+            case BattleState.ENEMYTURN:
+                TakeTurn();
+                break;
+        }
 
     }
+
+    private void TakeTurn()
+    {
+        //if (turnOrder.Count == 0)
+        //{
+        //    SetUpTurnOrder();
+        //}
+
+        var unit = turnOrder.Dequeue();
+
+
+        if (unit.gameObject.tag == "Enemy")
+        {
+            //state = BattleState.ENEMYTURN;
+            StartCoroutine(EnemyTurn());
+
+        }
+        else
+        {
+            //state = BattleState.PLAYERTURN;
+            StartCoroutine(PlayerAttack(unit));
+
+        }
+
+    }
+
 
     IEnumerator SetupBattle()
     {
@@ -123,31 +134,43 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        state = BattleState.PLAYERTURN;
-        PlayerTurn();
+        //state = BattleState.PLAYERTURN;
+        //PlayerTurn();
+
+        SetUpTurnOrder();
+
 
     }
 
     IEnumerator PlayerAttack(Unit player)
     {
-       bool isDead = enemyUnit.TakeDamage(player.damage);
+        bool isDead = enemyUnit.TakeDamage(player.damage);
 
-        enemyHUD.SetHP(enemyUnit.currentHP);
+        //enemyHUD.SetHP(enemyUnit.currentHP);
         dialogueText.text = "The attack is successful!";
 
         yield return new WaitForSeconds(2f);
 
-        if(isDead)
+        if (isDead)
         {
             state = BattleState.WON;
             EndBattle();
         }
         else
+        {
+            if (turnOrder.Count > 0)
             {
-
-            TurnProcessor();
-            //StartCoroutine(EnemyTurn());
+                SetTurnState(turnOrder.Peek());
             }
+            else
+            {
+                SetUpTurnOrder();
+            }
+
+
+            //TurnProcessor();
+            //StartCoroutine(EnemyTurn());
+        }
         // Change state based on what happened
     }
 
@@ -157,14 +180,14 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        int index = Random.Range(0,players.Count);
+        int index = Random.Range(0, players.Count);
 
         var player = players[index];
 
-        player.HUD.SetHP(player.currentHP);
+        //player.HUD.SetHP(player.currentHP);
 
         bool b = player.TakeDamage(enemyUnit.damage);
-
+        dialogueText.text = "The attack is successful!";
         if (b)
         {
             var temp = player.gameObject;
@@ -173,20 +196,28 @@ public class BattleSystem : MonoBehaviour
 
         }
 
-        bool isDead = b && players.Count == 0; 
+        bool isDead = b && players.Count == 0;
 
         yield return new WaitForSeconds(1f);
 
-        if(isDead)
+        if (isDead)
         {
             state = BattleState.LOST;
             EndBattle();
         }
         else
         {
+            if (turnOrder.Count > 0)
+            {
+                SetTurnState(turnOrder.Peek());
+            }
+            else
+            {
+                SetUpTurnOrder();
+            }
             //state = BattleState.PLAYERTURN;
             //PlayerTurn();
-            TurnProcessor();
+            //TurnProcessor();
         }
 
     }
@@ -205,9 +236,12 @@ public class BattleSystem : MonoBehaviour
 
     }
 
-    void PlayerTurn()
+    void PlayerTurn(Unit player)
     {
+        activePlayer = player;
+
         dialogueText.text = "Choose an action";
+        //StopAllCoroutines();
     }
 
     IEnumerator PlayerHeal()
@@ -219,8 +253,8 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        state = BattleState.ENEMYTURN;
-        StartCoroutine(EnemyTurn());
+        //state = BattleState.ENEMYTURN;
+        //StartCoroutine(EnemyTurn());
     }
 
     public void OnAttackButton()
@@ -228,8 +262,10 @@ public class BattleSystem : MonoBehaviour
         if (state != BattleState.PLAYERTURN)
             return;
 
-        //StartCoroutine(PlayerAttack());
-        TurnProcessor();
+        //StartCoroutine(PlayerAttack(activePlayer));
+        TakeTurn();
+        //TurnProcessor();
+
     }
 
     public void OnHealButton()

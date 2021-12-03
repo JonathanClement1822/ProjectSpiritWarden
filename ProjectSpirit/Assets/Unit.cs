@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Unit : MonoBehaviour
 {
@@ -11,11 +12,11 @@ public class Unit : MonoBehaviour
 
     //changed from int to float. Causes errors in BattleSystem.cs
     public int maxHP;
-    public int currentHP;
+    //public int currentHP;
 
     public BattleHUD HUD;
 
-    public string HUDName;
+    //public string HUDName;
 
     private void Awake()
     {
@@ -24,9 +25,9 @@ public class Unit : MonoBehaviour
 
     public bool TakeDamage(int dmg)
     {
-        currentHP -= dmg;
+        HUD.AdjustHealth(-dmg);
 
-        if (currentHP <= 0)
+        if (HUD.healthValue <= 0)
             return true;
         else
             return false;
@@ -35,8 +36,7 @@ public class Unit : MonoBehaviour
 
     public void Heal(int amount)
     {
-        currentHP += amount;
-        if (currentHP > maxHP)
-            currentHP = maxHP;
+        HUD.AdjustHealth(amount);
+
     }
 }
