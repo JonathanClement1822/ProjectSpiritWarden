@@ -14,10 +14,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scrolling Text.unity
     guid: 823de329661aa2947a6bfe1da234b310
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SpiritTest.unity
     guid: 6f7f323fbafea47d6b437a00d0d10d3d
   - enabled: 1
-    path: Assets/Scenes/Battle.unity
+    path: Assets/Scenes/Level_1.unity
+    guid: f41184acaf089b0478c15ee22ca62b0b
+  - enabled: 1
+    path: Assets/Scenes/Battle_1.unity
     guid: 3c78d66a487f85c4382202e303204d08
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 81eefccb4b4f98c4c8eac8db3793a0f5
   m_configObjects: {}
