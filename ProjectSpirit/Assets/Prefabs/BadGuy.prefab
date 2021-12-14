@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Badguy
   unitLevel: 2
-  damage: 1
+  damage: 3
   maxHP: 30
   HUD: {fileID: 1612758464259875596}
 --- !u!1 &1372851107876993907
@@ -75,8 +75,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1372851107876993907}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 84.3192, y: 84.3192, z: 84.3192}
+  m_LocalPosition: {x: 45, y: 23, z: 0}
+  m_LocalScale: {x: 520.25793, y: 520.25793, z: 520.25793}
   m_Children: []
   m_Father: {fileID: 191238194607128772}
   m_RootOrder: 0
@@ -121,9 +121,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d,
+  m_Sprite: {fileID: -2991773290986861209, guid: 78c52045edc835642b1bb30dca313fb5,
     type: 3}
-  m_Color: {r: 0.8679245, g: 0.21698113, b: 0.263155, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -321,11 +321,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
-    - target: {fileID: 3831075731208115864, guid: febef227583cc504f91abad94f0bac42,
-        type: 3}
-      propertyPath: m_Name
-      value: Mana
-      objectReference: {fileID: 0}
     - target: {fileID: 4797682249146852373, guid: febef227583cc504f91abad94f0bac42,
         type: 3}
       propertyPath: m_Pivot.x
@@ -431,11 +426,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7634834614602936651, guid: febef227583cc504f91abad94f0bac42,
-        type: 3}
-      propertyPath: mpBar
-      value: 
-      objectReference: {fileID: 6639905293025134474}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: febef227583cc504f91abad94f0bac42, type: 3}
 --- !u!224 &4395795195907356242 stripped
@@ -454,17 +444,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7b455fbf5d62de439cc3ee8f5ef1319, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6639905293025134474 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2571665655749842381, guid: febef227583cc504f91abad94f0bac42,
-    type: 3}
-  m_PrefabInstance: {fileID: 9193477306909545031}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

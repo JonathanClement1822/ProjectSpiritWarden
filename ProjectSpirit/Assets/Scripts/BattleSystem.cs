@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 
@@ -10,6 +11,8 @@ public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
 
 public class BattleSystem : MonoBehaviour
 {
+    public Animator transition;
+    public float TransitionTime = 1f;
     //public Unit[] players;
     //public BattleHUD[] playerHUDs;
 
@@ -156,6 +159,8 @@ public class BattleSystem : MonoBehaviour
         {
             state = BattleState.WON;
             EndBattle();
+            StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+
         }
         else
         {
@@ -206,6 +211,7 @@ public class BattleSystem : MonoBehaviour
         {
             state = BattleState.LOST;
             EndBattle();
+            SceneManager.LoadScene("GameOver");
         }
         else
         {
@@ -229,10 +235,12 @@ public class BattleSystem : MonoBehaviour
         if (state == BattleState.WON)
         {
             dialogueText.text = "You won the battle!";
+            StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex - 1));
         }
         else if (state == BattleState.LOST)
         {
             dialogueText.text = "You were defeated.";
+            SceneManager.LoadScene("GameOver");
         }
 
 
@@ -294,5 +302,18 @@ public class BattleSystem : MonoBehaviour
 
 
         StartCoroutine(PlayerHeal(unit));
+    }
+    IEnumerator LoadLevel(int LevelIndex)
+    {
+        //play animation
+        transition.SetTrigger("Start");
+
+        //Wait
+        yield return new WaitForSeconds(TransitionTime);
+
+        //load scene
+
+        SceneManager.LoadScene(LevelIndex);
+        
     }
 }

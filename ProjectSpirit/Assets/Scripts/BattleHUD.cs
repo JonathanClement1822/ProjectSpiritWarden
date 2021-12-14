@@ -42,8 +42,9 @@ public class BattleHUD : MonoBehaviour
         levelText.text = "LvL " + unit.unitLevel;
         healthValue = unit.maxHP;
         maxHP = unit.maxHP;
-        //manaValue = unit.maxMP;
-
+        /*manaValue = unit.maxMP;
+        maxMP = unit.maxMP;
+        */
 
 
     }
