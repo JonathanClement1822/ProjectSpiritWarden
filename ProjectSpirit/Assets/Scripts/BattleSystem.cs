@@ -235,7 +235,7 @@ public class BattleSystem : MonoBehaviour
         if (state == BattleState.WON)
         {
             dialogueText.text = "You won the battle!";
-            StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex - 1));
+            StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
         }
         else if (state == BattleState.LOST)
         {
