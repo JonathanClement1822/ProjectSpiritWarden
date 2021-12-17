@@ -696,8 +696,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 78, y: -3659}
-  m_SizeDelta: {x: -812.5, y: 5137.46}
+  m_AnchoredPosition: {x: 50.72998, y: -5283.715}
+  m_SizeDelta: {x: -503.49, y: 8386.89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1603105138
 MonoBehaviour:
@@ -732,27 +732,23 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra
-    pulvinar placerat. In varius molestie egestas. Nam lectus felis, interdum eu
-    mattis sed, hendrerit eu odio. Etiam mollis interdum eros, blandit consectetur
-    nibh fringilla id. Pellentesque habitant morbi tristique senectus et netus et
-    malesuada fames ac turpis egestas. Nullam consectetur urna ac pellentesque euismod.
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et massa et arcu
-    fringilla tempus luctus et nisi.
-
-
-
-    Donec facilisis lacus in venenatis varius.
-    Aliquam neque tellus, sagittis eu dolor ut, pretium facilisis metus. Duis libero
-    nibh, aliquet quis justo non, ultrices placerat massa. Aliquam quis tortor turpis.
-    Etiam quis eros posuere, dapibus ante lobortis, tincidunt nulla. Etiam ac quam
-    quis mauris posuere laoreet. Quisque porttitor, lacus vel tincidunt posuere,
-    sem ante convallis justo, sit amet ultrices nulla velit quis risus. Etiam et
-    diam nec nisl sagittis convallis vitae vel eros.
-
-
-
-'
+  m_Text: " You are the daughter of both Japanese and American parents. In this 
+    world there are spirits that you have to fight against, this is because of ancestors
+    making poor decisions and colliding the mortal world with the spirit world. Most
+    spirits aren't evil but can be corrupted similar to humans. At a young age children
+    are usually forcefully attuned or create a natural connection with a spirit that
+    will be with each other for the rest of both of their existences. You play as
+    a person who enters a school to train both spirits and humans in combat and social
+    knowledge.\n\n\t There are agencies that students have to intern at during their
+    education tenure. Your sister just so happens to own an agency of her own. Agencies
+    jobs go from battling large spirits and powerful humans to helping but spirits
+    and humans with small tasks. This is around the time when you notice something
+    out of place with the spirit and people in a certain area. Little known to your
+    own knowledge while everyone was distracted by a recent victory by powerful students
+    and spirits, there is a spirit living underground in a cave slowly absorbing
+    energy from everything around it. This powerful being starts to draw other powerful
+    spirits and humans looking to gain new and stronger powers.\r\n\n\tNow you are
+    sent to a nearby town to help with an alarming ammount of evil spirits\n\n"
 --- !u!222 &1603105139
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -773,7 +769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee9367c8c0feb6f4abeea87ccfd756b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 3
+  scrollSpeed: 2
 --- !u!61 &1603105141
 BoxCollider2D:
   m_ObjectHideFlags: 0

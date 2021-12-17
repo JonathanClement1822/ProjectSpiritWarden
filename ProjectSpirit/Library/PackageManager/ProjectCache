@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637747670822142708
+      ticks: 637752883590434950
     m_Hash: 2196452247
   m_LockFileStatus:
     m_FilePath: C:/Users/dobam/Desktop/ProjectSpiritW/ProjectSpirit/Packages/packages-lock.json
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637747670822217723
+      ticks: 637752883590494958
     m_Hash: 150865506
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
